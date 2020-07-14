@@ -27,7 +27,7 @@ router.post("/api/sandwiches", (req, res) => {
   });
 });
 
-router.put("/api/sandwiches/:id", (res, res) => {
+router.put("/api/sandwiches/:id", (req, res) => {
   const condition = `id = ${req.params.id}`;
 
   console.log("condition", condition);

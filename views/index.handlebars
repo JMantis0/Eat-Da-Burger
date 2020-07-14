@@ -1,3 +1,7 @@
+<h1></h1>
+
+
+
 <header class="container-fluid">
 <div class="jumbotron jumbotron-fluid" id="topJumbotron">
   <div class="container">
@@ -25,13 +29,21 @@
 <h2>Sandwich Data</h2>
 
 <ul>
-empty
+{{#each sandwiches}}
+  {{#unless consumed}}
+    {{>sandwiches/sandwich-block consumed=true}}
+  {{/unless}}
+{{/each}}
 </ul>
 
-<h2>Sandwiches</h2>
+<h2>Sandwich Data</h2>
 
 <ul>
- empty
+{{#each sandwiches}}
+  {{#unless consumed}}
+    {{> sandwiches/sandwich-block consumed=false}}
+  {{/unless}}
+{{/each}}
 </ul>
 
 <h2>Add a Sandwich</h2>
@@ -43,9 +55,9 @@ empty
   </div>
 
   <div class="form-group">
-    <label for="sleepy">Sleepy?</label><br>
-    <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
-    <input type="radio" name="sleepy" value="0"> Awake
+    <label for="consumed">Consumed?</label><br>
+    <input type="radio" name="consumed" value="1" checked>Consumed<br>
+    <input type="radio" name="consumed" value="0"> Unconsumed
   </div>
 
   <button type="submit">Add Cat</button>
