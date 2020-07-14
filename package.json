@@ -1,0 +1,18 @@
+{
+  "name": "consume-the-sandwich",
+  "version": "1.0.0",
+  "description": "consume sandwiches",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.0.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "JMantis0",
+  "license": "MIT"
+}
