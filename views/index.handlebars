@@ -40,9 +40,9 @@
 
 <ul>
 {{#each sandwiches}}
-  {{#unless consumed}}
+  {{#if consumed}}
     {{> sandwiches/sandwich-block consumed=false}}
-  {{/unless}}
+  {{/if}}
 {{/each}}
 </ul>
 
