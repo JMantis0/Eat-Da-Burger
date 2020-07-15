@@ -26,8 +26,8 @@ $(function() {
     event.preventDefault();
 
     var newSandwich = {
-      name: $("#ca").val().trim(),
-      consumed: $("[name=consumed]:checked").val().trim()
+      name: $("#sandwichInput").val().trim(),
+      consumed: 1
     };
 
     // Send the POST request.
@@ -36,7 +36,7 @@ $(function() {
       data: newSandwich
     }).then(
       function() {
-        console.log("created new cat");
+        console.log("created new sandwich");
         // Reload the page to get the updated list
         location.reload();
       }

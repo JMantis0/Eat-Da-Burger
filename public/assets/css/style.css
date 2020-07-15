@@ -2,12 +2,16 @@
   padding: 0;
 }
 
-
 #topJumbotron {
   font-family: 'Modak', cursive;
   text-align: center;
   background: linear-gradient(white, red);
   margin: 0;
+}
+
+#createSandwichRow {
+  font-family: 'Modak', cursive;
+  font-size: 75px;
 }
 
 #jumboTitle {
@@ -19,3 +23,6 @@
   padding: 0;
 }
 
+#unconsumedCol {
+  text-align: right;
+}

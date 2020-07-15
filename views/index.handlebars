@@ -1,7 +1,4 @@
 <h1></h1>
-
-
-
 <header class="container-fluid">
   <div class="row jumbotronRow">
     <div class="col">
@@ -27,50 +24,61 @@
       </ul>
     </div>
   </div>
-
-
 </header>
+<main class="container" id="mainContainer">
 
-<main class="row" id="sandwichRow">
-  <div class="col" id="unconsumedRow">
-    <h1>Consume Sandwiches here</h1>
-    <ul>
-      {{#each sandwiches}}
-      {{#if consumed}}
-      {{> sandwiches/sandwich-block consumed=false}}
-      {{/if}}
-      {{/each}}
-    </ul>
+  <div class="row" id="createSandwichRow">
+
+    <div class="col" id="addHolder">
+      ADD ->
+    </div>
+
+
+    <div class="col" id="inputHolder">
+      <form class="create-form">
+        <div class="form-group">
+          <label for="sandwichInput"></label>
+          <input type="text" id="sandwichInput" name="name">
+        </div>
+        <button type="submit">Add Sandwich</button>
+      </form>
+    </div>
+
+    <div class="col" id="addHolder">
+      <div class="row">
+        Sand-
+      </div>
+      <div class="row">
+        wich
+      </div>
+    </div>
+
   </div>
-  <div class="col" id="consumedRow">
-    <h1>Regurgitate Sandwiches here</h1>
-    <ul>
-      {{#each sandwiches}}
-      {{#unless consumed}}
-      {{>sandwiches/sandwich-block consumed=true}}
-      {{/unless}}
-      {{/each}}
-    </ul>
+
+
+
+  <div class="row" id="consumeSandwichRow">
+    <div class="col" id="unconsumedCol">
+      <h1 class="row">Consume Sandwiches here</h1>
+      
+        {{#each sandwiches}}
+        {{#if consumed}}
+        {{> sandwiches/sandwich-block consumed=false}}
+        {{/if}}
+        {{/each}}
+      
+    </div>
+    <div class="col" id="consumedCol">
+      <h1>Regurgitate Sandwiches here</h1>
+      <ul>
+        {{#each sandwiches}}
+        {{#unless consumed}}
+        {{>sandwiches/sandwich-block consumed=true}}
+        {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
   </div>
+
+
 </main>
-<div class="row" id="createSandwichRow">
-  <div class="col">
-
-    <h2>Add a Sandwich</h2>
-    <form class="create-form">
-
-      <div class="form-group">
-        <label for="sandwichInput">Sandwich name:</label>
-        <input type="text" id="sandwichInput" name="name">
-      </div>
-
-      <div class="form-group">
-        <label for="consumed">Consumed?</label><br>
-        <input type="radio" name="consumed" value="1" checked>Consumed<br>
-        <input type="radio" name="consumed" value="0"> Unconsumed
-      </div>
-
-      <button type="submit">Add Sandwich</button>
-    </form>
-  </div>
-</div>
