@@ -1,11 +1,10 @@
-// Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function() {
-  $(".change-consumed").on("click", function(event) {
+  $(".eat").on("click", function(event) {
     var id = $(this).data("id");
-    var newConsumed = $(this).data("newconsumed");
+    var consumed = $(this).data("eaten");
 
     var newConsumedState = {
-      consumed: newConsumed
+      consumed
     };
 
     // Send the PUT request.
@@ -14,14 +13,14 @@ $(function() {
       data: newConsumedState
     }).then(
       function() {
-        console.log("changed sleep to", newConsumed);
+        console.log("changed consumed", consumed);
         // Reload the page to get the updated list
         location.reload();
       }
     );
   });
 
-  $(".create-form").on("submit", function(event) {
+  $("#createButton").click((event) => {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
@@ -43,17 +42,11 @@ $(function() {
     );
   });
 
-  $(".delete-sandwich").on("click", function(event) {
-    var id = $(this).data("id");
-    // Send the DELETE request.
-    $.ajax("/api/sandwiches/" + id, {
-      type: "DELETE"
-    }).then(
-      function() {
-        console.log("deleted sandwich", id);
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
+  // if enter key is pressed within input then click the create button.
+  $("#sandwichInput").on("keydown", (event) => {
+    if(event.keyCode === 13) {
+      $("#createButton").click();
+    }
   });
+
 });

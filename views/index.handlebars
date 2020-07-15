@@ -1,10 +1,91 @@
-<h1></h1>
+{{!-- header contains a jumbotron. --}}
 <header class="container-fluid">
   <div class="row jumbotronRow">
     <div class="col">
       <div class="jumbotron jumbotron-fluid" id="topJumbotron">
         <div class="container">
           <h1 class="display-4" id="jumboTitle">Consume Sandwiches Online</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{!-- edgeOne used for styling --}}
+  <div class="row" id="edgeOne">
+    
+  </div>
+</header>
+
+{{!-- main container contains input and a button. --}}
+<main class="container" id="mainContainer">
+
+  <div class="row align-items-center" id="createSandwichRow">
+
+    {{!-- addHolder contains some text next to the input --}}
+    <div class="col-4" id="addHolder">
+      <div class="row align-items-center">
+        <div class="col">-></div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col">ADD YOUR</div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col">SANDWICH</div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col"></div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col">-></div>
+      </div>
+    </div>
+
+    {{!-- inputHolder contains the input for sandwich names --}}
+    <div class="col-4" id="inputHolder">
+      <input type="text" id="sandwichInput" name="name">
+    </div>
+
+    {{!-- buttonHolder contains the button to create sandwiches --}}
+    <div class="col-4" id="buttonHolder">
+      <button id="createButton">Create</button>
+    </div>
+
+  </div>
+
+</main>
+
+{{!-- consumeContainer contains the sandwiches available for consumption --}}
+{{!-- and the list of consumed sandwiches --}}
+<section class="container-fluid" id="consumeContainer">
+  <div class="row jumbotronRow">
+    <div class="col">
+      {{!-- edgeTwo used for styling --}}
+      <div class="row" id="edgeTwo">
+    
+      </div>
+      <div class="jumbotron jumbotron-fluid" id="bottomJumbotron">
+        <div class="container">
+          <div class="row" id="consumeSandwichRow">
+            <div class="col" id="unconsumedCol">
+              <h1 class="row">Eat a Sandwich</h1>
+
+              {{#each sandwiches}}
+              {{#if consumed}}
+              {{> sandwiches/sandwich-block consumed=false}}
+              {{/if}}
+              {{/each}}
+
+            </div>
+            <div class="col" id="consumedCol">
+              <h1>Sandwiches Eaten</h1>
+              <ul>
+                {{#each sandwiches}}
+                {{#unless consumed}}
+                {{>sandwiches/sandwich-block consumed=true}}
+                {{/unless}}
+                {{/each}}
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -24,61 +105,9 @@
       </ul>
     </div>
   </div>
-</header>
-<main class="container" id="mainContainer">
-
-  <div class="row" id="createSandwichRow">
-
-    <div class="col" id="addHolder">
-      ADD ->
-    </div>
-
-
-    <div class="col" id="inputHolder">
-      <form class="create-form">
-        <div class="form-group">
-          <label for="sandwichInput"></label>
-          <input type="text" id="sandwichInput" name="name">
-        </div>
-        <button type="submit">Add Sandwich</button>
-      </form>
-    </div>
-
-    <div class="col" id="addHolder">
-      <div class="row">
-        Sand-
-      </div>
-      <div class="row">
-        wich
-      </div>
-    </div>
-
-  </div>
 
 
 
-  <div class="row" id="consumeSandwichRow">
-    <div class="col" id="unconsumedCol">
-      <h1 class="row">Consume Sandwiches here</h1>
-      
-        {{#each sandwiches}}
-        {{#if consumed}}
-        {{> sandwiches/sandwich-block consumed=false}}
-        {{/if}}
-        {{/each}}
-      
-    </div>
-    <div class="col" id="consumedCol">
-      <h1>Regurgitate Sandwiches here</h1>
-      <ul>
-        {{#each sandwiches}}
-        {{#unless consumed}}
-        {{>sandwiches/sandwich-block consumed=true}}
-        {{/unless}}
-        {{/each}}
-      </ul>
-    </div>
-  </div>
 
 
-</main>
+</section>
