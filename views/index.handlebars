@@ -3,62 +3,74 @@
 
 
 <header class="container-fluid">
-<div class="jumbotron jumbotron-fluid" id="topJumbotron">
-  <div class="container">
-    <h1 class="display-4">Consume Sandwiches Online</h1>
+  <div class="row jumbotronRow">
+    <div class="col">
+      <div class="jumbotron jumbotron-fluid" id="topJumbotron">
+        <div class="container">
+          <h1 class="display-4">Consume Sandwiches Online</h1>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-<ul class="nav" id="navigation">
-  <li class="nav-item">
-    <a class="nav-link active" href="#">Consume</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">About</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Data</a>
-  </li>
-</ul>
+  <div class="row" id="navigaionRow">
+    <div class="col">
+      <ul class="nav" id="navigation">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Consume</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Data</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 
 
 </header>
 
-
-<h1>Consume Sandwiches here</h1>
-
-<h2>Sandwich Data</h2>
-
-<ul>
-{{#each sandwiches}}
-  {{#unless consumed}}
-    {{>sandwiches/sandwich-block consumed=true}}
-  {{/unless}}
-{{/each}}
-</ul>
-
-<h2>Sandwich Data</h2>
-
-<ul>
-{{#each sandwiches}}
-  {{#if consumed}}
-    {{> sandwiches/sandwich-block consumed=false}}
-  {{/if}}
-{{/each}}
-</ul>
-
-<h2>Add a Sandwich</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="ca">Sandwich name:</label>
-    <input type="text" id="ca" name="name">
+<main class="row" id="sandwichRow">
+  <div class="col" id="unconsumedRow">
+    <h1>Consume Sandwiches here</h1>
+    <ul>
+      {{#each sandwiches}}
+      {{#if consumed}}
+      {{> sandwiches/sandwich-block consumed=false}}
+      {{/if}}
+      {{/each}}
+    </ul>
   </div>
-
-  <div class="form-group">
-    <label for="consumed">Consumed?</label><br>
-    <input type="radio" name="consumed" value="1" checked>Consumed<br>
-    <input type="radio" name="consumed" value="0"> Unconsumed
+  <div class="col" id="consumedRow">
+    <h1>Regurgitate Sandwiches here</h1>
+    <ul>
+      {{#each sandwiches}}
+      {{#unless consumed}}
+      {{>sandwiches/sandwich-block consumed=true}}
+      {{/unless}}
+      {{/each}}
+    </ul>
   </div>
+</main>
+<div class="row" id="createSandwichRow">
+  <div class="col">
 
-  <button type="submit">Add Cat</button>
-</form>
+    <h2>Add a Sandwich</h2>
+    <form class="create-form">
+
+      <div class="form-group">
+        <label for="ca">Sandwich name:</label>
+        <input type="text" id="ca" name="name">
+      </div>
+
+      <div class="form-group">
+        <label for="consumed">Consumed?</label><br>
+        <input type="radio" name="consumed" value="1" checked>Consumed<br>
+        <input type="radio" name="consumed" value="0"> Unconsumed
+      </div>
+
+      <button type="submit">Add Cat</button>
+    </form>
+  </div>
+</div>

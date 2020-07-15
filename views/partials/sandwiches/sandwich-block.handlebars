@@ -2,7 +2,7 @@
 	{{name}}
 
 	<button class="change-consumed" data-id="{{id}}" data-newconsumed="{{consumed}}">
-		{{#if consumed}}Consume it{{else}}Regurgitate it{{/if}}
+		{{#unless consumed}}Consume it{{else}}Regurgitate it{{/unless}}
 	</button>
 
 	<button class="delete-sandwich" data-id="{{this.id}}">Delete it!</button>
