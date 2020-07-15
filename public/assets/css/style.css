@@ -6,6 +6,7 @@
   font-family: 'Modak', cursive;
   text-align: center;
   background: linear-gradient(white, red);
+  padding: 0px;
   margin: 0;
 
 }
@@ -53,5 +54,15 @@
 }
 
 #bottomJumbotron  {
+  margin-top: 8px;
   background: linear-gradient(red, white);
+  padding: 0;
 }
+
+#bottomJumbotron h1 {
+  font-family: 'Modak', cursive;
+}
+/* 
+.sandwichDisplay {
+  border: 1px solid black;
+} */

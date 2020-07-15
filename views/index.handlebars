@@ -10,16 +10,12 @@
     </div>
   </div>
   {{!-- edgeOne used for styling --}}
-  <div class="row" id="edgeOne">
-    
-  </div>
+  <div class="row" id="edgeOne"></div>
 </header>
 
 {{!-- main container contains input and a button. --}}
 <main class="container" id="mainContainer">
-
   <div class="row align-items-center" id="createSandwichRow">
-
     {{!-- addHolder contains some text next to the input --}}
     <div class="col-4" id="addHolder">
       <div class="row align-items-center">
@@ -38,19 +34,15 @@
         <div class="col">-></div>
       </div>
     </div>
-
     {{!-- inputHolder contains the input for sandwich names --}}
     <div class="col-4" id="inputHolder">
       <input type="text" id="sandwichInput" name="name">
     </div>
-
     {{!-- buttonHolder contains the button to create sandwiches --}}
     <div class="col-4" id="buttonHolder">
       <button id="createButton">Create</button>
     </div>
-
   </div>
-
 </main>
 
 {{!-- consumeContainer contains the sandwiches available for consumption --}}
@@ -59,55 +51,33 @@
   <div class="row jumbotronRow">
     <div class="col">
       {{!-- edgeTwo used for styling --}}
-      <div class="row" id="edgeTwo">
-    
-      </div>
+      <div class="row" id="edgeTwo"></div>
       <div class="jumbotron jumbotron-fluid" id="bottomJumbotron">
         <div class="container">
           <div class="row" id="consumeSandwichRow">
             <div class="col" id="unconsumedCol">
-              <h1 class="row">Eat a Sandwich</h1>
-
+              <h1 class="row">
+                <div class="col">Consumable Sandwiches</div>
+              </h1>
               {{#each sandwiches}}
               {{#if consumed}}
               {{> sandwiches/sandwich-block consumed=false}}
               {{/if}}
               {{/each}}
-
             </div>
             <div class="col" id="consumedCol">
-              <h1>Sandwiches Eaten</h1>
-              <ul>
-                {{#each sandwiches}}
-                {{#unless consumed}}
-                {{>sandwiches/sandwich-block consumed=true}}
-                {{/unless}}
-                {{/each}}
-              </ul>
+              <h1 class="row">
+                <div class="col">Sandwiches Consumed</div>
+              </h1>
+              {{#each sandwiches}}
+              {{#unless consumed}}
+              {{>sandwiches/sandwich-block consumed=true}}
+              {{/unless}}
+              {{/each}}
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="row" id="navigationRow">
-    <div class="col">
-      <ul class="nav" id="navigation">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Consume</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Data</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-
-
-
-
 </section>
