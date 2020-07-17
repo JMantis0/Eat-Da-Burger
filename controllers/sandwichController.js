@@ -15,6 +15,9 @@ router.get("/", function(req, res) {
   });
 });
 
+//  Accepts post calls from front end.  Calls create method from sandwich model (/models/sandwich.js)
+//  With sandwich object data received from the client
+//  Then sends id back to the client
 router.post("/api/sandwiches", (req, res) => {
   sandwich.create([
     "name", "consumed"
