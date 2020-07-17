@@ -1,9 +1,17 @@
-<li>
-	{{name}}
+<div class="row sandwichDisplay">
+  <div class="col-2"></div>
+  <div class="col-4">
+    {{name}}
+  </div>
+  <div class="col-4">
+    {{#unless consumed}}
+    <button class="eat" data-id="{{id}}" data-eaten="{{consumed}}">
+      Consume it
+    </button>
+    {{else}}
+    <button class="delete-sandwich" data-id="{{this.id}}">Delete it!</button>
 
-	<button class="change-consumed" data-id="{{id}}" data-newconsumed="{{consumed}}">
-		{{#unless consumed}}Consume it{{else}}Regurgitate it{{/unless}}
-	</button>
-
-	<button class="delete-sandwich" data-id="{{this.id}}">Delete it!</button>
-</li>
+    {{/unless}}
+  </div>
+  <div class="col-2"></div>
+</div>

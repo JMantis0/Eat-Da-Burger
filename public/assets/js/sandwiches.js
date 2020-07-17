@@ -1,33 +1,9 @@
-// Make sure we wait to attach our handlers until the DOM is fully loaded.
-$(function() {
-  $(".change-consumed").on("click", function(event) {
-    var id = $(this).data("id");
-    var newConsumed = $(this).data("newconsumed");
+$(function () {
 
-    var newConsumedState = {
-      consumed: newConsumed
-    };
-
-    // Send the PUT request.
-    $.ajax("/api/sandwiches/" + id, {
-      type: "PUT",
-      data: newConsumedState
-    }).then(
-      function() {
-        console.log("changed sleep to", newConsumed);
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
-  });
-
-  $(".create-form").on("submit", function(event) {
-    // Make sure to preventDefault on a submit event.
-    event.preventDefault();
-
+  let createBurger = () => {
     var newSandwich = {
-      name: $("#ca").val().trim(),
-      consumed: $("[name=consumed]:checked").val().trim()
+      name: $("#burgerInput").val().trim(),
+      consumed: 1
     };
 
     // Send the POST request.
@@ -35,25 +11,67 @@ $(function() {
       type: "POST",
       data: newSandwich
     }).then(
-      function() {
-        console.log("created new cat");
+      function (id) {
+        console.log("id is ", id, "created new sandwich");
+        // Reload the page to get the updated list
+        // location.reload();
+      }
+    );
+  }
+
+
+
+
+  $(".eat").on("click", function (event) {
+    var id = $(this).data("id");
+    var consumed = $(this).data("eaten");
+
+    var newConsumedState = {
+      consumed
+    };
+
+    // Send the PUT request.
+    $.ajax("/api/sandwiches/" + id, {
+      type: "PUT",
+      data: newConsumedState
+    }).then(
+      function () {
+        console.log("changed consumed", consumed);
         // Reload the page to get the updated list
         location.reload();
       }
     );
   });
 
-  $(".delete-sandwich").on("click", function(event) {
+  $("#createButton").click((event) => {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+
+    createBurger();
+  });
+
+  // if enter key is pressed within input then click the create button.
+  $("#burgerInput").on("keydown", (event) => {
+    if (event.keyCode === 13) {
+      // Make sure to preventDefault on a submit event.
+      event.preventDefault();
+
+      createBurger();
+    }
+  });
+
+  $(".delete-sandwich").on("click", function (event) {
     var id = $(this).data("id");
     // Send the DELETE request.
     $.ajax("/api/sandwiches/" + id, {
       type: "DELETE"
     }).then(
-      function() {
+      function () {
         console.log("deleted sandwich", id);
         // Reload the page to get the updated list
         location.reload();
       }
     );
   });
+
 });

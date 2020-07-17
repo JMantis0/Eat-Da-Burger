@@ -1,76 +1,66 @@
-<h1></h1>
-
-
-
+{{!-- Make a header that is also a button that opens up an expand
+ --}}
 <header class="container-fluid">
+  <button class="btn on" type="button" data-toggle="collapse" data-target="#mainContainer" aria-expanded="false"
+    aria-controls="collapseExample" id="headerBtn">
+    Eat - Da - Burger
+  </button>
+</header>
+
+
+{{!-- main container contains input and a button. --}}
+<main class="container-fluid collapse" id="mainContainer">
+  <div class="input-group mb-3" id="burgerNameTakerGroup">
+    <input type="text" class="form-control" id="burgerInput" placeholder="Burger name" aria-label="Burger name"
+      aria-describedby="burger-addon">
+    <div class="input-group-append">
+      <span class="input-group-text" id="burger-addon">Burger</span>
+    </div>
+  </div>
+
+</main>
+
+<section class="container-fluid collapse" id="buttonContainer">
+  <div class="btn-group" id="addButtonGroup" role="group" aria-label="burger-add-buttons">
+    <button class="btn" type="submit">Add Burger Now</button>
+    <button type="button" class="btn btn-secondary">Right</button>
+  </div>
+</section>
+
+
+{{!-- consumeContainer contains the sandwiches available for consumption --}}
+{{!-- and the list of consumed sandwiches --}}
+<section class="container-fluid" id="consumeContainer">
   <div class="row jumbotronRow">
     <div class="col">
-      <div class="jumbotron jumbotron-fluid" id="topJumbotron">
+      {{!-- edgeTwo used for styling --}}
+      <div class="row" id="edgeTwo"></div>
+      <div class="jumbotron jumbotron-fluid" id="bottomJumbotron">
         <div class="container">
-          <h1 class="display-4">Consume Sandwiches Online</h1>
+          <div class="row" id="consumeSandwichRow">
+            <div class="col" id="unconsumedCol">
+              <h1 class="row">
+                <div class="col bottomTitle">Consumable Sandwiches</div>
+              </h1>
+              {{#each sandwiches}}
+              {{#if consumed}}
+              {{> sandwiches/sandwich-block consumed=false}}
+              {{/if}}
+              {{/each}}
+            </div>
+            <div class="col" id="consumedCol">
+              <h1 class="row">
+                <div class="col bottomTitle">Sandwiches Consumed</div>
+              </h1>
+              {{#each sandwiches}}
+              {{#unless consumed}}
+              {{>sandwiches/sandwich-block consumed=true}}
+              {{/unless}}
+              {{/each}}
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="row" id="navigaionRow">
-    <div class="col">
-      <ul class="nav" id="navigation">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Consume</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Data</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-
-</header>
-
-<main class="row" id="sandwichRow">
-  <div class="col" id="unconsumedRow">
-    <h1>Consume Sandwiches here</h1>
-    <ul>
-      {{#each sandwiches}}
-      {{#if consumed}}
-      {{> sandwiches/sandwich-block consumed=false}}
-      {{/if}}
-      {{/each}}
-    </ul>
-  </div>
-  <div class="col" id="consumedRow">
-    <h1>Regurgitate Sandwiches here</h1>
-    <ul>
-      {{#each sandwiches}}
-      {{#unless consumed}}
-      {{>sandwiches/sandwich-block consumed=true}}
-      {{/unless}}
-      {{/each}}
-    </ul>
-  </div>
-</main>
-<div class="row" id="createSandwichRow">
-  <div class="col">
-
-    <h2>Add a Sandwich</h2>
-    <form class="create-form">
-
-      <div class="form-group">
-        <label for="ca">Sandwich name:</label>
-        <input type="text" id="ca" name="name">
-      </div>
-
-      <div class="form-group">
-        <label for="consumed">Consumed?</label><br>
-        <input type="radio" name="consumed" value="1" checked>Consumed<br>
-        <input type="radio" name="consumed" value="0"> Unconsumed
-      </div>
-
-      <button type="submit">Add Cat</button>
-    </form>
-  </div>
-</div>
+</section>
