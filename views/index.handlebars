@@ -1,49 +1,32 @@
-{{!-- header contains a jumbotron. --}}
+{{!-- Make a header that is also a button that opens up an expand
+ --}}
 <header class="container-fluid">
-  <div class="row jumbotronRow">
-    <div class="col">
-      <div class="jumbotron jumbotron-fluid" id="topJumbotron">
-        <div class="container">
-          <h1 class="display-4" id="jumboTitle">Consume Sandwiches Online</h1>
-        </div>
-      </div>
-    </div>
-  </div>
-  {{!-- edgeOne used for styling --}}
-  <div class="row" id="edgeOne"></div>
+  <button class="btn on" type="button" data-toggle="collapse" data-target="#mainContainer" aria-expanded="false"
+    aria-controls="collapseExample" id="headerBtn">
+    Eat - Da - Burger
+  </button>
 </header>
 
+
 {{!-- main container contains input and a button. --}}
-<main class="container" id="mainContainer">
-  <div class="row align-items-center" id="createSandwichRow">
-    {{!-- addHolder contains some text next to the input --}}
-    <div class="col-4" id="addHolder">
-      <div class="row align-items-center">
-        <div class="col">-></div>
-      </div>
-      <div class="row align-items-center">
-        <div class="col">ADD YOUR</div>
-      </div>
-      <div class="row align-items-center">
-        <div class="col">SANDWICH</div>
-      </div>
-      <div class="row align-items-center">
-        <div class="col"></div>
-      </div>
-      <div class="row align-items-center">
-        <div class="col">-></div>
-      </div>
-    </div>
-    {{!-- inputHolder contains the input for sandwich names --}}
-    <div class="col-4" id="inputHolder">
-      <input type="text" id="sandwichInput" name="name">
-    </div>
-    {{!-- buttonHolder contains the button to create sandwiches --}}
-    <div class="col-4" id="buttonHolder">
-      <button id="createButton">Create</button>
+<main class="container-fluid collapse" id="mainContainer">
+  <div class="input-group mb-3" id="burgerNameTakerGroup">
+    <input type="text" class="form-control" id="burgerInput" placeholder="Burger name" aria-label="Burger name"
+      aria-describedby="burger-addon">
+    <div class="input-group-append">
+      <span class="input-group-text" id="burger-addon">Burger</span>
     </div>
   </div>
+
 </main>
+
+<section class="container-fluid collapse" id="buttonContainer">
+  <div class="btn-group" id="addButtonGroup" role="group" aria-label="burger-add-buttons">
+    <button class="btn" type="submit">Add Burger Now</button>
+    <button type="button" class="btn btn-secondary">Right</button>
+  </div>
+</section>
+
 
 {{!-- consumeContainer contains the sandwiches available for consumption --}}
 {{!-- and the list of consumed sandwiches --}}
@@ -57,7 +40,7 @@
           <div class="row" id="consumeSandwichRow">
             <div class="col" id="unconsumedCol">
               <h1 class="row">
-                <div class="col">Consumable Sandwiches</div>
+                <div class="col bottomTitle">Consumable Sandwiches</div>
               </h1>
               {{#each sandwiches}}
               {{#if consumed}}
@@ -67,7 +50,7 @@
             </div>
             <div class="col" id="consumedCol">
               <h1 class="row">
-                <div class="col">Sandwiches Consumed</div>
+                <div class="col bottomTitle">Sandwiches Consumed</div>
               </h1>
               {{#each sandwiches}}
               {{#unless consumed}}

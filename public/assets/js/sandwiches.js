@@ -1,5 +1,28 @@
-$(function() {
-  $(".eat").on("click", function(event) {
+$(function () {
+
+  let createBurger = () => {
+    var newSandwich = {
+      name: $("#burgerInput").val().trim(),
+      consumed: 1
+    };
+
+    // Send the POST request.
+    $.ajax("/api/sandwiches", {
+      type: "POST",
+      data: newSandwich
+    }).then(
+      function (id) {
+        console.log("id is ", id, "created new sandwich");
+        // Reload the page to get the updated list
+        // location.reload();
+      }
+    );
+  }
+
+
+
+
+  $(".eat").on("click", function (event) {
     var id = $(this).data("id");
     var consumed = $(this).data("eaten");
 
@@ -12,7 +35,7 @@ $(function() {
       type: "PUT",
       data: newConsumedState
     }).then(
-      function() {
+      function () {
         console.log("changed consumed", consumed);
         // Reload the page to get the updated list
         location.reload();
@@ -24,38 +47,26 @@ $(function() {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
-    var newSandwich = {
-      name: $("#sandwichInput").val().trim(),
-      consumed: 1
-    };
-
-    // Send the POST request.
-    $.ajax("/api/sandwiches", {
-      type: "POST",
-      data: newSandwich
-    }).then(
-      function() {
-        console.log("created new sandwich");
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
+    createBurger();
   });
 
   // if enter key is pressed within input then click the create button.
-  $("#sandwichInput").on("keydown", (event) => {
-    if(event.keyCode === 13) {
-      $("#createButton").click();
+  $("#burgerInput").on("keydown", (event) => {
+    if (event.keyCode === 13) {
+      // Make sure to preventDefault on a submit event.
+      event.preventDefault();
+
+      createBurger();
     }
   });
 
-  $(".delete-sandwich").on("click", function(event) {
+  $(".delete-sandwich").on("click", function (event) {
     var id = $(this).data("id");
     // Send the DELETE request.
     $.ajax("/api/sandwiches/" + id, {
       type: "DELETE"
     }).then(
-      function() {
+      function () {
         console.log("deleted sandwich", id);
         // Reload the page to get the updated list
         location.reload();
