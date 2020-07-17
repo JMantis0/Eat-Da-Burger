@@ -1,14 +1,15 @@
 // Import the ORM to create functions that will interact with the database.
 var orm = require("../config/orm.js");
 
-var cat = {
+var burger = {
   all: function(cb) {
     //  "sandwich" here refers to the sandwiches table.  
     orm.all("sandwiches", function(res) {
       cb(res);
     });
   },
-  // The variables cols and vals are arrays.
+  // calls create method from the ORM using data sent from sandwichController
+  // then executes the cb send from sandwichController
   create: function(cols, vals, cb) {
     orm.create("sandwiches", cols, vals, function(res) {
       cb(res);
@@ -27,4 +28,4 @@ var cat = {
 };
 
 // Export the database functions for the controller (catsController.js).
-module.exports = cat;
+module.exports = burger;

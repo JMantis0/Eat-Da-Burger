@@ -1,7 +1,10 @@
 $(function () {
 
+  //  createBurger creates a newSandwich object using value of #burgerInput
+  //  then uses an ajax to send a post call to sandwichController
+  //  then console logs and refreshes page
   let createBurger = () => {
-    var newSandwich = {
+    var newBurger = {
       name: $("#burgerInput").val().trim(),
       consumed: 1
     };
@@ -9,18 +12,14 @@ $(function () {
     // Send the POST request.
     $.ajax("/api/sandwiches", {
       type: "POST",
-      data: newSandwich
+      data: newBurger
     }).then(
       function (id) {
-        console.log("id is ", id, "created new sandwich");
         // Reload the page to get the updated list
-        // location.reload();
+        location.reload();
       }
     );
   }
-
-
-
 
   $(".eat").on("click", function (event) {
     var id = $(this).data("id");
@@ -43,7 +42,7 @@ $(function () {
     );
   });
 
-  $("#createButton").click((event) => {
+  $("#createBtn").click((event) => {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
@@ -60,7 +59,7 @@ $(function () {
     }
   });
 
-  $(".delete-sandwich").on("click", function (event) {
+  $(".delBtn").on("click", function (event) {
     var id = $(this).data("id");
     // Send the DELETE request.
     $.ajax("/api/sandwiches/" + id, {
