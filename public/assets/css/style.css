@@ -26,8 +26,7 @@ body {
 }
 
 #headerBtn:hover, #createBtn:hover, .eat:hover {
-  /* background-color: rgb(127, 201, 127); */
-  background-color:red;
+  background-color: rgb(127, 201, 127);
 }
 
 .delBtn:hover {
