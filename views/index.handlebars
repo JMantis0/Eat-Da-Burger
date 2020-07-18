@@ -1,63 +1,68 @@
 {{!-- Make a header that is also a button that opens up an expand
  --}}
 <header class="container-fluid">
-  <button class="btn on" id="headerBtn" type="button" data-toggle="collapse" data-target="#mainContainer" aria-expanded="false"
-    aria-controls="collapseExample">
+  <button class="btn on" id="headerBtn" type="button" data-toggle="collapse" data-target="#collapseContainer"
+    aria-expanded="false" aria-controls="burgerCollapse">
     Eat - Da - Burger
   </button>
 </header>
 
+<div class="collapse show" id="collapseContainer">
+  {{!-- main container contains input and a button. --}}
+  <main class="container-fluid" id="mainContainer">
+    <div class="input-group" id="burgerNameTakerGroup">
+      <input type="text" class="form-control" id="burgerInput" autocomplete="off" placeholder="Enter Burger Name"
+        aria-label="Enter Burger Name" aria-describedby="burger-addon">
+    </div>
+    <div class="ingredients lettuce"></div>
+    <div class="ingredients cheese"></div>
+    <div class="ingredients patty"></div>
+    <button class="input-group-button" id="createBtn">Add Burger</button>
+  </main>
 
-{{!-- main container contains input and a button. --}}
-<main class="container-fluid collapse show" id="mainContainer">
-  <div class="input-group" id="burgerNameTakerGroup">
-    <input type="text" class="form-control" id="burgerInput" autocomplete="off" placeholder="Enter Burger Name"
-      aria-label="Enter Burger Name" aria-describedby="burger-addon">
+
+  {{!-- consumeContainer contains the sandwiches available for consumption --}}
+  {{!-- and the list of devoured sandwiches --}}
+  <div class="container-fluid" id="consumeContainer">
+    <div class="row burgersDevouredBuns">
+      <div class="col burgersDevouredTitle">
+        BURGERS
+      </div>
+      <div class="col burgersDevouredTitle">
+        DEVOURED
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col" id="unconsumedCol">
+        {{#each sandwiches}}
+        {{#if devoured}}
+        {{> sandwiches/sandwich-block devoured=false}}
+        {{/if}}
+        {{/each}}
+      </div>
+      <div class="col" id="consumedCol">
+        {{#each sandwiches}}
+        {{#unless devoured}}
+        {{>sandwiches/sandwich-block devoured=true}}
+        {{/unless}}
+        {{/each}}
+      </div>
+    </div>
+
+    <div class="row burgersDevouredBuns">
+      <div class="col burgersDevouredBottom">
+
+      </div>
+      <div class="col burgersDevouredBottom">
+
+      </div>
+    </div>
+
   </div>
-  <div class="ingredients" id="lettuce"></div>
-  <div class="ingredients" id="cheese"></div>
-  <div class="ingredients" id="patty"></div>
-  <button class="input-group-button" id="createBtn">Add Burger</button>
-</main>
-
-
-{{!-- consumeContainer contains the sandwiches available for consumption --}}
-{{!-- and the list of devoured sandwiches --}}
-<div class="container-fluid" id="consumeContainer">
-  <div class="row burgersDevouredBuns">
-    <div class="col burgersDevouredTitle">
-      BURGERS
-    </div>
-    <div class="col burgersDevouredTitle">
-      DEVOURED
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col" id="unconsumedCol">
-      {{#each sandwiches}}
-      {{#if devoured}}
-      {{> sandwiches/sandwich-block devoured=false}}
-      {{/if}}
-      {{/each}}
-    </div>
-    <div class="col" id="consumedCol">
-      {{#each sandwiches}}
-      {{#unless devoured}}
-      {{>sandwiches/sandwich-block devoured=true}}
-      {{/unless}}
-      {{/each}}
-    </div>
-  </div>
-
-  <div class="row burgersDevouredBuns">
-    <div class="col burgersDevouredBottom">
-     
-    </div>
-    <div class="col burgersDevouredBottom">
-    
-    </div>
-  </div>
-
 </div>
-<a href="https://www.vecteezy.com/free-vector/pixel-art">Pixel Art Vectors by Vecteezy</a>
+
+<footer id="burgerFooter" class="text-center">
+  <a href="https://www.vecteezy.com/free-vector/pixel-art">Pixel Art Vectors by Vecteezy</a>
+  <p>Site created by Jesse Mazur Copyright 2020</p>
+</footer>
