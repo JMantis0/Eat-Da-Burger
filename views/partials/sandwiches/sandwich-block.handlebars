@@ -1,15 +1,21 @@
-<div class="row burgerDisplay mt-2">
+{{#unless devoured}}
+<div class="row burgerDisplay mb-1 mt-1">
   <div class="col-8">
     <i class="fas fa-hamburger mr-4"></i>{{name}}
   </div>
   <div class="col-4">
-    {{#unless devoured}}
     <button class="eat" data-id="{{id}}" data-eaten="{{devoured}}">
       Devour
     </button>
-    {{else}}
-    <button class="delBtn" data-id="{{this.id}}"><i class="far fa-trash-alt"></i></button>
-
-    {{/unless}}
   </div>
 </div>
+{{else}}
+<div class="row burgerDisplay mb-1 mt-1">
+  <div class="col-8">
+    <i class="fas fa-hamburger mr-4"></i>{{name}}
+  </div>
+  <div class="col-4">
+    <button class="delBtn" data-id="{{this.id}}"><i class="far fa-trash-alt"></i></button>
+  </div>
+</div>
+{{/unless}}

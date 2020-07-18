@@ -4,8 +4,14 @@ $(function () {
   //  then uses an ajax to send a post call to sandwichController
   //  then console logs and refreshes page
   let createBurger = () => {
+    let burgerName = $("#burgerInput").val().trim();
+    if (burgerName === "") {
+      burgerName = "No-name Burger";
+    } else {
+      burgerName = $("#burgerInput").val().trim();
+    }
     var newBurger = {
-      name: $("#burgerInput").val().trim(),
+      name: burgerName,
       devoured: 1
     };
 

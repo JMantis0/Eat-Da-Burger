@@ -11,9 +11,12 @@
 {{!-- main container contains input and a button. --}}
 <main class="container-fluid collapse show" id="mainContainer">
   <div class="input-group" id="burgerNameTakerGroup">
-    <input type="text" class="form-control" id="burgerInput" placeholder="Enter Burger Name"
+    <input type="text" class="form-control" id="burgerInput" autocomplete="off" placeholder="Enter Burger Name"
       aria-label="Enter Burger Name" aria-describedby="burger-addon">
   </div>
+  <div class="ingredients" id="lettuce"></div>
+  <div class="ingredients" id="cheese"></div>
+  <div class="ingredients" id="patty"></div>
   <button class="input-group-button" id="createBtn">Add Burger</button>
 </main>
 
@@ -21,7 +24,7 @@
 {{!-- consumeContainer contains the sandwiches available for consumption --}}
 {{!-- and the list of devoured sandwiches --}}
 <div class="container-fluid" id="consumeContainer">
-  <div class="row" id="burgersDevouredTitles">
+  <div class="row burgersDevouredBuns">
     <div class="col burgersDevouredTitle">
       BURGERS
     </div>
@@ -46,5 +49,15 @@
       {{/each}}
     </div>
   </div>
+
+  <div class="row burgersDevouredBuns">
+    <div class="col burgersDevouredBottom">
+     
+    </div>
+    <div class="col burgersDevouredBottom">
+    
+    </div>
+  </div>
+
 </div>
 <a href="https://www.vecteezy.com/free-vector/pixel-art">Pixel Art Vectors by Vecteezy</a>

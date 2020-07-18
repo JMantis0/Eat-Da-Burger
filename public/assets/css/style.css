@@ -1,6 +1,7 @@
 body {
   background-image: url("../images/burger-background2.jpg");
   background-repeat: repeat;
+
 }
 
 .container-fluid {
@@ -9,11 +10,7 @@ body {
 }
 
 
-#sandwichInput {
-  width: 100%;
-  height: 30vh;
-  text-align: center;
-}
+
 
 
 /* redo */
@@ -25,9 +22,6 @@ body {
   border-radius: 30%;
 }
 
-#headerBtn:hover, #createBtn:hover, .eat:hover {
-  background-color: rgb(127, 201, 127);
-}
 
 .delBtn:hover {
   background-color: red;
@@ -55,10 +49,6 @@ body {
 	animation: pulse 2s infinite;
 }
 
-#mainContainer * {
-  min-height: 10vh;
-  font-size: 4vw!important;
-}
 
 header:before, #mainContainer::before, #mainContainer::after {
 	content: " ";
@@ -70,14 +60,64 @@ header:before, #mainContainer::before, #mainContainer::after {
 }
 
 #createBtn {
-  width: 100%;
-  border-radius: 30%;
+  height: 10vh;
+  width: 50%;
+  margin: 0 25% 0 25%;
+  border-bottom-left-radius: 40%;
+  border-bottom-right-radius: 40%;
+  background: linear-gradient(orange,pink)
 }
 
 #burgerInput {
+  height: 10vh;
+  margin-left: 25%;
+  margin-right: 25%;
+  width: 50%;
   text-align: center;
   border: 2px solid black;
+  border-top-left-radius: 40%;
+  border-top-right-radius: 40%;
+  background: linear-gradient(pink,orange)
+}
+
+
+#headerBtn:hover, #createBtn:hover, .eat:hover {
+  background: none;
+  background-color: rgb(127, 201, 127);
+}
+
+#mainContainer * {
+  font-size: 4vw;
+}
+
+.ingredients {
+  height: 2vh;
+  width: 60%;
+  margin: 0 20% 0 20%;
+}
+
+#lettuce {
+  height: .5vh;
+  background-color: rgb(95, 255, 95);
+}
+
+#cheese {
+  background-color: yellow;
+  margin-bottom: -10px;
+  border-radius: 30% 30% 0 0;
+}
+
+#patty {
+  height: 5vh;
+  width: 60%;
+  margin: 0 20% -5px 20%;
   border-radius: 30%;
+  background-color: brown;
+}
+
+.burgersDevouredBuns {
+  width: 90%;
+  margin: 0 5%;
 }
 
 .burgersDevouredTitle {
@@ -88,20 +128,55 @@ header:before, #mainContainer::before, #mainContainer::after {
   border-top-right-radius: 30%;
   border-top-left-radius: 30%;
   border: 2px solid black;
-  background: linear-gradient(pink,orange)
+  background: linear-gradient(pink,orange);
+}
+
+.burgersDevouredBottom {
+  height: 10vh;
+  font-size: 4vw;
+  text-align: center;
+  line-height: 10vh;
+  border-bottom-right-radius: 30%;
+  border-bottom-left-radius: 30%;
+  border: 2px solid black;
+  background: linear-gradient(orange, pink)
+}
+
+.burgerDisplay {
+  border-radius: 30%;
 }
 
 .burgerDisplay > * {
+  color: yellow;
   min-height: 6vh;
   font-size: 3vw;
   text-align: center;
   line-height: 6vh;
 }
 
+.left {
+  border-radius: 30% 30%
+}
+
 .eat, .delBtn {
   height: 100%;
   border-radius: 30%;
   min-width: 10vw;
+}
+
+#consumedCol, #unconsumedCol {
+  background-color: brown;
+  
+}
+
+#consumedCol {
+  border-radius: 0 20% 20% 0;
+  border-left: solid 2px yellow;
+}
+
+#unconsumedCol {
+  border-radius: 20% 0 0 20%;
+  border-right: solid 2px yellow;
 }
 
 @media screen and (min-width: 360px) {
@@ -131,14 +206,14 @@ header:before, #mainContainer::before, #mainContainer::after {
     width: 80vw;
     margin: 0 10vw 0 10vw;
   }
-  .burgersDevouredTitle {
+  .burgersDevouredTitle, #burgerInput, #createBtn {
     font-size: 3vw;
   }
   .burgerDisplay > *{
     font-size: 2vw;
   }
   #mainContainer {
-    font-size: 30px!important;
+    font-size: 30px;
   }
 }
 
