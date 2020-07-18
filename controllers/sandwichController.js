@@ -20,9 +20,9 @@ router.get("/", function(req, res) {
 //  Then sends id back to the client
 router.post("/api/sandwiches", (req, res) => {
   sandwich.create([
-    "name", "consumed"
+    "name", "devoured"
   ], [
-    req.body.name, req.body.consumed
+    req.body.name, req.body.devoured
   ], (result) => {
     // Send back the id 
     res.json({ id: result.insertId });
@@ -36,7 +36,7 @@ router.put("/api/sandwiches/:id", (req, res) => {
   console.log("condition", condition);
 
   sandwich.update({
-    consumed: req.body.consumed
+    devoured: req.body.devoured
   }, condition, (result) => {
     if(result.changedRows === 0) {
       // If no rows changed, ID must not exists thus 404

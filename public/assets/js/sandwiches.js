@@ -6,7 +6,7 @@ $(function () {
   let createBurger = () => {
     var newBurger = {
       name: $("#burgerInput").val().trim(),
-      consumed: 1
+      devoured: 1
     };
 
     // Send the POST request.
@@ -23,19 +23,19 @@ $(function () {
 
   $(".eat").on("click", function (event) {
     var id = $(this).data("id");
-    var consumed = $(this).data("eaten");
+    var devoured = $(this).data("eaten");
 
-    var newConsumedState = {
-      consumed
+    var newdevouredState = {
+      devoured
     };
 
     // Send the PUT request.
     $.ajax("/api/sandwiches/" + id, {
       type: "PUT",
-      data: newConsumedState
+      data: newdevouredState
     }).then(
       function () {
-        console.log("changed consumed", consumed);
+        console.log("changed devoured", devoured);
         // Reload the page to get the updated list
         location.reload();
       }
