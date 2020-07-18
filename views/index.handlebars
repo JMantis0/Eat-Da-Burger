@@ -19,7 +19,7 @@
 
 
 {{!-- consumeContainer contains the sandwiches available for consumption --}}
-{{!-- and the list of consumed sandwiches --}}
+{{!-- and the list of devoured sandwiches --}}
 <div class="container-fluid" id="consumeContainer">
   <div class="row" id="burgersDevouredTitles">
     <div class="col burgersDevouredTitle">
@@ -33,15 +33,15 @@
   <div class="row">
     <div class="col" id="unconsumedCol">
       {{#each sandwiches}}
-      {{#if consumed}}
-      {{> sandwiches/sandwich-block consumed=false}}
+      {{#if devoured}}
+      {{> sandwiches/sandwich-block devoured=false}}
       {{/if}}
       {{/each}}
     </div>
     <div class="col" id="consumedCol">
       {{#each sandwiches}}
-      {{#unless consumed}}
-      {{>sandwiches/sandwich-block consumed=true}}
+      {{#unless devoured}}
+      {{>sandwiches/sandwich-block devoured=true}}
       {{/unless}}
       {{/each}}
     </div>
