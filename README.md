@@ -1,7 +1,7 @@
-# Eat-Da-Burger
+# [Eat-Da-Burger](https://secret-scrubland-53219.herokuapp.com/)
 ![GitHub repo size](https://img.shields.io/github/repo-size/JMantis0/Eat-Da-Burger)  ![GitHub language count](https://img.shields.io/github/languages/count/JMantis0/Eat-Da-Burger)  ![GitHub top language](https://img.shields.io/github/languages/top/JMantis0/Eat-Da-Burger)  
 
-[Eat-Da-Burger](https://secret-scrubland-53219.herokuapp.com/)
+
 
 ## Getting Started
 
