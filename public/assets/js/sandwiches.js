@@ -3,6 +3,10 @@ $(function () {
   //  createBurger creates a newSandwich object using value of #burgerInput
   //  then uses an ajax to send a post call to sandwichController
   //  then console logs and refreshes page
+
+  $("#burgerInput").focus();
+
+
   let createBurger = () => {
     let burgerName = $("#burgerInput").val().trim();
     if (burgerName === "") {

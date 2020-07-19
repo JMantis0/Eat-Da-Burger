@@ -3,25 +3,26 @@
 
 [Eat-Da-Burger](https://secret-scrubland-53219.herokuapp.com/)
 
-## Description
+## Getting Started
 
-An application that allows users to create and consume burgers.
+This is a web application that allows users to create and consume burgers.
 
-## Table of Contents
-* [Installation](#installation)
-* [Usage](#usage)
-* [Credits](#credits)
-* [License](#license)
-* [Contributing](#contributing)
-* [Tests](#tests)
 
 ## Installation
 
-Visit [site], enter burger name into the input, create burgers, then devour them.
+None.  Simply visit the [web site](https://secret-scrubland-53219.herokuapp.com/)
 
 ## Usage
 
+Create a burger you'd like to 'devour' by typing its name into the Burger Name input then clicking on 'Add Burger' (or pressing the enter key).
+The burger will appear in the Burgers section.
+'Devour' the burger by clicking its respective 'Devour' button.
 
+![usingtheapp](./public/assets/images/burger.gif)
+
+## Concepts within
+
+mySQL, express, express-handlebars, MVC (Model View Controller) Design Structure, Mobile First Design, Bootstrap Framework, Javascript, jQuery, and HTML.
 
 ## Credits
 
@@ -54,10 +55,3 @@ SOFTWARE.
 
 Post comments or issues on the repo.
 
-## Tests
-
-None
-
-## Questions
-
-None

@@ -1,9 +1,9 @@
 {{#unless devoured}}
 <div class="row burgerDisplay mb-1 mt-1">
-  <div class="col-8">
-    <i class="fas fa-hamburger mr-4"></i>{{name}}
+  <div class="col-9">
+    <i class="fas fa-hamburger mr-1"></i>{{name}}
   </div>
-  <div class="col-4">
+  <div class="col-3">
     <button class="eat" data-id="{{id}}" data-eaten="{{devoured}}">
       Devour
     </button>
@@ -11,10 +11,10 @@
 </div>
 {{else}}
 <div class="row burgerDisplay mb-1 mt-1">
-  <div class="col-8">
-    <i class="fas fa-hamburger mr-4"></i>{{name}}
+  <div class="col-9">
+    <i class="fas fa-hamburger mr-1"></i>{{name}}
   </div>
-  <div class="col-4">
+  <div class="col-3">
     <button class="delBtn" data-id="{{this.id}}"><i class="far fa-trash-alt"></i></button>
   </div>
 </div>

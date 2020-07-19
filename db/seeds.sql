@@ -1,2 +1,5 @@
 INSERT INTO sandwiches (name, devoured)
-VALUES ("Peanut Butter and Jelly", false);
+VALUES 
+("Demon Burger", true),
+("Bison Burger", true),
+("Black Bean Burger", true);

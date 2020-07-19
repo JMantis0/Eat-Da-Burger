@@ -16,6 +16,10 @@ body {
   border-radius: 30%;
 }
 
+.col-9, .col-3 {
+  margin: 0;
+  padding: 0;
+}
 
 .delBtn:hover {
   background-color: red;
@@ -160,7 +164,7 @@ header:before, #mainContainer::before, #mainContainer::after, #consumeContainer:
   border-radius: 30%;
 }
 
-.burgerDisplay > * {
+.burgerDisplay > .col-9 {
   color: yellow;
   min-height: 6vh;
   font-size: 3vw;
@@ -168,14 +172,16 @@ header:before, #mainContainer::before, #mainContainer::after, #consumeContainer:
   line-height: 6vh;
 }
 
+
 .left {
   border-radius: 30% 30%
 }
 
 .eat, .delBtn {
+  font-size: 2.8vw;
   height: 100%;
   border-radius: 30%;
-  min-width: 10vw;
+  min-width: 5vw;
 }
 
 #consumedCol, #unconsumedCol {
@@ -200,7 +206,6 @@ header:before, #mainContainer::before, #mainContainer::after, #consumeContainer:
   }
 }
 
-
 @media screen and (min-width: 540px) {
 	.container-fluid {
     width: 90vw;
@@ -222,9 +227,6 @@ header:before, #mainContainer::before, #mainContainer::after, #consumeContainer:
   }
   .burgersDevouredTitle, #burgerInput, #createBtn {
     font-size: 3vw;
-  }
-  .burgerDisplay > *{
-    font-size: 2vw;
   }
   #mainContainer {
     font-size: 30px;
