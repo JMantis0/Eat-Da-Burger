@@ -26,7 +26,14 @@ mySQL, express, express-handlebars, MVC (Model View Controller) Design Structure
 
 ## Credits
 
-Trilogy
+- [font awesome](https://fontawesome.com/)
+- [Bootstrap](https://getbootstrap.com/docs/4.5/getting-started/introduction/)
+- [Trilogy](https://www.trilogyed.com/)
+- [npm express](https://www.npmjs.com/package/express)
+- [npm express-handlebars](https://www.npmjs.com/package/express-handlebars)
+- [MySQL](https://www.mysql.com/)
+- [Vecteezy](https://www.vecteezy.com/)
+- [jQuery](https://jquery.com/)
 
 ## License
 
