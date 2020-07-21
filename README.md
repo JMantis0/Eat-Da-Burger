@@ -22,7 +22,15 @@ The burger will appear in the Burgers section.
 
 ## Concepts within
 
-mySQL, express, express-handlebars, MVC (Model View Controller) Design Structure, Mobile First Design, Bootstrap Framework, Javascript, jQuery, and HTML.
+- MySQL
+- express
+- express-handlebars
+- MVC (Model View Controller) Design Structure
+- Mobile First Design
+- Bootstrap Framework
+- Javascript
+- jQuery
+- HTML.
 
 ## Credits
 
