@@ -180,10 +180,20 @@ header:before, #mainContainer::before, #mainContainer::after, #consumeContainer:
   border-radius: 30% 30%
 }
 
-.eat, .delBtn {
-  font-size: 2.8vw;
+.eat {
+  font-size: 2.5vw;
   height: 100%;
   border-radius: 30%;
+  min-width: 5vw;
+  width: 95%;
+}
+
+.delBtn {
+  font-size: 2.5vw;
+  height: 100%;
+  border-radius: 30%;
+  width: 50%;
+  margin: 0 25%;
   min-width: 5vw;
 }
 
