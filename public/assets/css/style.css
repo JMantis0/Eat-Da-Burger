@@ -256,4 +256,13 @@ header:before, #mainContainer::before, #mainContainer::after, #consumeContainer:
     width: 75vw;
     margin: 0 12.5vw 0 12.5vw;
   }
+
+  .burgerDisplay > .col-9 {
+    font-size: calc(3vw - 10px);
+  }
+
+  .eat {
+    font-size: 30px;
+  }
+
 }
