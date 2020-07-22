@@ -261,7 +261,7 @@ header:before, #mainContainer::before, #mainContainer::after, #consumeContainer:
     font-size: calc(3vw - 10px);
   }
 
-  .eat {
+  .eat, .delBtn {
     font-size: 30px;
   }
 
